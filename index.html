@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Image Tracking</title>
+
+  <!-- Inclusione delle librerie A-Frame e AR.js -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/AR.js/aframe/build/aframe-ar.js"></script>
+
+  <!-- Stile base per la pagina -->
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: none; }
+  </style>
+</head>
+<body>
+  <a-scene embedded arjs>
+    <!-- Includi il marker per il tracking dell'immagine -->
+    <a-marker type="image" url="pattern-girl.patt">
+      <a-video src="#video" width="4" height="2" position="0 0 0"></a-video>
+    </a-marker>
+
+    <!-- Definisci il video da riprodurre quando il marker viene rilevato -->
+    <a-assets>
+      <video id="video" src="girl.mp4" autoplay="true" loop="true" crossorigin="anonymous"></video>
+    </a-assets>
+
+    <!-- Aggiungi una telecamera AR -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+</html>
+
